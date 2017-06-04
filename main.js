@@ -9,7 +9,6 @@ function apply_click_handlers (){
     $('.button_decimal').click(decimal);
     $('.ce_button').click(clear_everything_button);
 }
-
 //when button is clicked
 function button_click (){
     var numbers_value = $(this).val(); //get value of button click(numbers)
@@ -27,7 +26,6 @@ function button_click (){
     // }
     display();
 }
-
 //set up flag
 var already_have_decimal = false;
 
@@ -42,7 +40,6 @@ function decimal (){
         display();
     }
 }
-
 var operator_value;
 var last_index = storage_array.length-1;
 function operator_click( ) {
@@ -60,7 +57,6 @@ function operator_click( ) {
     last_index = storage_array.length-1;
     if (!isNaN(storage_array[last_index])){ // check if there is number in the last array
         storage_array.push(operator_value);//push value into array
-
     }
     else {
         storage_array[last_index] = operator_value;
@@ -68,7 +64,6 @@ function operator_click( ) {
     display();
     already_have_decimal = false;
 }
-
 function equal_button() {
     if (storage_array.length === 2){ //operation repeat
         storage_array[2] = storage_array[0];
@@ -82,9 +77,7 @@ function equal_button() {
             storage_array[0] = zero;
             display();
         }
-
     }
-
     if(storage_array.length===3) {
         var result = do_math();
         storage_array[0] = result; //assign result at index 0 helps whenever you click = button again it will automatically do math with WHATEVER NUMBER AT INDEX 2 !!
@@ -96,7 +89,6 @@ function equal_button() {
         display();
     }
 }
-
 function display(){
     var new_display = storage_array.join("");
     $('.display').text(new_display);
@@ -134,8 +126,3 @@ function clear_everything_button() {
     display();
     already_have_decimal = false;
 }
-
-
-
-
-
